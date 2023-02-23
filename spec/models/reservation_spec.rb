@@ -7,16 +7,16 @@ RSpec.describe Reservation, type: :model do
     )
     @doctor = Doctor.new(
       name: 'Tom',
-      speciality:'General',
-      description:'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      graduation:'20/01/1998',
-      image: '#',
+      speciality: 'General',
+      description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      graduation: '20/01/1998',
+      image: '#'
     )
     @reservation = Reservation.new(
       city: 'Buenos Aires',
       user: @user,
       doctor: @doctor,
-      date: '2023-03-01',
+      date: '2023-03-01'
     )
 
     @user.save
@@ -40,18 +40,18 @@ RSpec.describe Reservation, type: :model do
       city: 'Buenos Aires',
       user: @user,
       doctor: @doctor,
-      date: '2023-03-01',
+      date: '2023-03-01'
     )
     expect(@reservation2).to_not be_valid
     @reservation3 = Reservation.new(
       city: 'Buenos Aires',
       user: @user,
       doctor: @doctor,
-      date: '2023-03-02',
+      date: '2023-03-02'
     )
     expect(@reservation3).to be_valid
   end
-      
+
   it 'date should be present' do
     @reservation.date = nil
     expect(@reservation).to_not be_valid

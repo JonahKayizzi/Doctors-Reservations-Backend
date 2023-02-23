@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Doctor, type: :model do
-  subject { 
+  subject do
     Doctor.new(
       name: 'Tom',
-      speciality:'General',
-      description:'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      graduation:'20/01/1998',
-      image: '#',
+      speciality: 'General',
+      description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      graduation: '20/01/1998',
+      image: '#'
     )
-  }
+  end
 
   before { subject.save }
   it 'name should be present' do
@@ -25,15 +25,15 @@ RSpec.describe Doctor, type: :model do
     expect(subject).to_not be_valid
   end
   it 'description should be a minimum of 50 characters' do
-    subject.description = "not enough characters"
+    subject.description = 'not enough characters'
     expect(subject).to_not be_valid
   end
   it 'description should be a maximum of 300 characters' do
-    subject.description = %q("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    subject.description = '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    )
+    '
     expect(subject).to_not be_valid
   end
 end
