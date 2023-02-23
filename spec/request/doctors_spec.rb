@@ -14,5 +14,20 @@ RSpec.describe 'Doctors', type: :request do
         expect(response).to have_http_status(:success)
         end
     end
+
+    describe 'POST /create' do
+        it 'returns http success' do
+        post '/api/v1/doctors', params: {
+            doctor: {
+                "name":"Dr Steven Hobb",
+                "speciality":"Dentist",
+                "description":"Top dentist in the city of New York. Come get your dentals corrected in a single appointment. ",
+                "graduation":"2001-01-30",
+                "image":"hobb.png"
+            }
+          }
+        expect(response).to have_http_status(:success)
+        end
+    end
     
 end
