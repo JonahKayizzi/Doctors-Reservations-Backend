@@ -30,4 +30,10 @@ RSpec.describe 'Doctors', type: :request do
         end
     end
     
+    describe 'DELETE /destroy' do
+        it 'returns http success' do
+        delete '/api/v1/doctors/1'
+        expect(response).to have_http_status(:success)
+        end
+    end
 end
