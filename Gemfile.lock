@@ -202,9 +202,13 @@ GEM
       actionpack (>= 3.1, < 7.1)
       railties (>= 3.1, < 7.1)
     thor (1.2.1)
+    timeliness (0.4.5)
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    validates_timeliness (7.0.0.beta1)
+      activemodel (>= 7.0.0, < 8)
+      timeliness (>= 0.3.10, < 1)
     tzinfo-data (1.2022.7)
       tzinfo (>= 1.0.0)
     warden (1.2.9)
@@ -230,6 +234,7 @@ DEPENDENCIES
   rspec-rails
   rswag
   tzinfo-data
+  validates_timeliness (~> 7.0.0.beta1)
 
 RUBY VERSION
    ruby 3.1.3p185
