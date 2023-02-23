@@ -4,4 +4,10 @@ class Api::V1::DoctorsController < ApplicationController
         @doctors = Doctor.all
         render json: @doctors
     end
+
+    def show
+        @doctor = Doctor.find(params[:id])
+        render json: @doctor
+    end
+
 end
