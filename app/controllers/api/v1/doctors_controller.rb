@@ -22,4 +22,13 @@ class Api::V1::DoctorsController < ApplicationController
     def doctor_params
         params.require(:doctor).permit(:name, :speciality, :description, :graduation, :image)
     end
+
+    def destroy
+        @doctor = Doctor.find(params[:id])
+        if @doctor.destroy
+            render json: 'Doctor deleted successfully'
+        else
+            render json: 'Doctor deletion failed'
+        end
+    end
 end
