@@ -17,6 +17,33 @@ RSpec.describe 'api/v1/doctors', type: :request do
 
     post('create doctor') do
       response(200, 'successful') do
+        consumes 'application/json'
+        parameter name: :doctor, in: :body, schema: {
+          type: :object,
+          properties: {
+            name: { type: :string },
+            speciality: { type: :string },
+            description: { type: :text },
+            graduation: { type: :date },
+            image: { type: :string }
+          },
+          required: %w[name speciality description graduation image]
+        }
+
+        let(:doctor) do
+          Doctor.create(name: 'Steven Hobb', speciality: 'Dentist',
+                        description: "Top dentist in the city of New York.
+                        Come get your dentals corrected in a single appointment.",
+                        graduation: '2001-01-30', image: 'https://images.com/doctor.jpeg')
+        end
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
 
         run_test!
       end
@@ -28,10 +55,13 @@ RSpec.describe 'api/v1/doctors', type: :request do
 
     get('show doctor') do
       response(200, 'successful') do
-        let(:doctor) { 
-          Doctor.create(name: 'Steven Hobb', speciality: 'Dentist', description: 'Top dentist in the city of New York. Come get your dentals corrected in a single appointment. ', graduation: '2001-01-30', image: 'https://static9.depositphotos.com/1037778/1113/i/600/depositphotos_11138153-stock-photo-mature-dentist-surgeon-at-office.jpg')
-        }
-        let (:id) { doctor.id }
+        let(:doctor) do
+          Doctor.create(name: 'Steven Hobb', speciality: 'Dentist',
+                        description: "Top dentist in the city of New York.
+                        Come get your dentals corrected in a single appointment.",
+                        graduation: '2001-01-30', image: 'https://images.com/doctor.jpeg')
+        end
+        let(:id) { doctor.id }
 
         after do |example|
           example.metadata[:response][:content] = {
@@ -46,11 +76,14 @@ RSpec.describe 'api/v1/doctors', type: :request do
 
     delete('delete doctor') do
       response(200, 'successful') do
-        let(:doctor) { 
-          Doctor.create(name: 'Steven Hobb', speciality: 'Dentist', description: 'Top dentist in the city of New York. Come get your dentals corrected in a single appointment. ', graduation: '2001-01-30', image: 'https://static9.depositphotos.com/1037778/1113/i/600/depositphotos_11138153-stock-photo-mature-dentist-surgeon-at-office.jpg')
-        }
-        let (:id) { doctor.id }
-        
+        let(:doctor) do
+          Doctor.create(name: 'Steven Hobb', speciality: 'Dentist',
+                        description: "Top dentist in the city of New York.
+                        Come get your dentals corrected in a single appointment.",
+                        graduation: '2001-01-30', image: 'https://images.com/doctor.jpeg')
+        end
+        let(:id) { doctor.id }
+
         run_test!
       end
     end
