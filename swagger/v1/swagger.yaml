@@ -4,58 +4,18 @@ info:
   title: API V1
   version: v1
 paths:
-  '/doctors':
+  "/api/v1/doctors":
     get:
-      summary: Retrieves Doctors
-      tags:
-        - Doctors
+      summary: list doctors
       responses:
         '200':
-          description: doctors found
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    name:
-                      type: string
-                    speciality:
-                      type: string
-                    description:
-                      type: string
-                    graduation:
-                      type: string
-                    image:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                  required:
-                    - id
-                    - name
-                    - speciality
-                    - description
-                    - graduation
-                    - image
-                    - created_at
-                    - updated_at
-        '404':
-          description: doctors not found
+          description: successful
     post:
-      summary: Creates a doctor
-      tags:
-        - Doctors
+      summary: create doctor
       parameters: []
       responses:
-        '201':
-          description: Doctor created successfully
-        '422':
-          description: invalid request
+        '200':
+          description: successful
       requestBody:
         content:
           application/json:
@@ -67,127 +27,47 @@ paths:
                 speciality:
                   type: string
                 description:
-                  type: string
+                  type: text
                 graduation:
-                  type: string
+                  type: date
                 image:
                   type: string
               required:
-                - name
-                - speciality
-                - description
-                - graduation
-                - image
-  '/doctors/{id}':
+              - name
+              - speciality
+              - description
+              - graduation
+              - image
+  "/api/v1/doctors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: number
     get:
-      summary: Retrieves a doctor
-      tags:
-        - Doctors
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
+      summary: show doctor
       responses:
         '200':
-          description: doctor found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  name:
-                    type: string
-                  speciality:
-                    type: string
-                  description:
-                    type: string
-                  graduation:
-                    type: string
-                  image:
-                    type: string
-                  created_at:
-                    type: string
-                  updated_at:
-                    type: string
-                required:
-                  - id
-                  - name
-                  - speciality
-                  - description
-                  - graduation
-                  - image
-                  - created_at
-                  - updated_at
-        '404':
-          description: doctor not found
+          description: successful
     delete:
-      summary: Deletes a doctor
-      tags:
-        - Doctors
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      responses:
-        '204':
-          description: Doctor deleted successfully
-        '404':
-          description: doctor not found
-  '/reservations':
-    get:
-      summary: Retrieves Reservations
-      tags:
-        - Reservations
+      summary: delete doctor
       responses:
         '200':
-          description: reservations found
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    date:
-                      type: string
-                    city:
-                      type: string
-                    doctor_id:
-                      type: integer
-                    user_id:
-                      type: integer
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                  required:
-                    - id
-                    - date
-                    - city
-                    - doctor_id
-                    - user_id
-                    - created_at
-                    - updated_at
-        '404':
-          description: reservations not found
+          description: successful
+  "/api/v1/reservations":
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
     post:
-      summary: Creates a reservation
-      tags:
-        - Reservations
+      summary: create reservation
       parameters: []
       responses:
-        '201':
-          description: reservation created
-        '422':
-          description: invalid request
+        '200':
+          description: successful
       requestBody:
         content:
           application/json:
@@ -195,20 +75,20 @@ paths:
               type: object
               properties:
                 date:
-                  type: string
+                  type: date
                 city:
                   type: string
-                doctor_id:
-                  type: integer
                 user_id:
-                  type: integer
+                  type: number
+                doctor_id:
+                  type: number
               required:
-                - date
-                - city
-                - doctor_id
-                - user_id
+              - date
+              - city
+              - user_id
+              - doctor_id
 servers:
-  - url: http://{defaultHost}
-    variables:
-      defaultHost:
-        default: 127.0.0.1:3000/api/v1/
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000/
