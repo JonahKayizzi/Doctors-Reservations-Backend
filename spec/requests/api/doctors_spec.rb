@@ -54,5 +54,31 @@ describe 'Doctors API' do
             end
         end
     end
+
+    path '/doctors' do
+        post 'Creates a doctor' do
+            tags 'Doctors'
+            consumes 'application/json'
+            parameter name: :doctor, in: :body, schema: {
+                type: :object,
+                properties: {
+                    name: { type: :string },
+                    speciality: { type: :string },
+                    description: { type: :string },
+                    graduation: { type: :string },
+                    image: { type: :string }
+                },
+                required: [ 'name', 'speciality', 'description', 'graduation', 'image' ]
+            }
+            response '201', 'Doctor created successfully' do
+                let(:doctor) { { name: 'Doctor', speciality: 'Speciality', description: 'Description', graduation: 'Graduation', image: 'Image' } }
+                run_test!
+            end
+            response '422', 'invalid request' do
+                let(:doctor) { { name: 'Doctor', speciality: 'Speciality', description: 'Description', graduation: 'Graduation', image: 'Image' } }
+                run_test!
+            end
+        end
+    end
 end
 
