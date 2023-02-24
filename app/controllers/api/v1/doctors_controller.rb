@@ -14,12 +14,8 @@ class Api::V1::DoctorsController < ApplicationController
     if @doctor.save
       render json: 'Doctor created successfully'
     else
-      render json: 'Doctor creation failed'
+      render json: @doctor.errors
     end
-  end
-
-  def doctor_params
-    params.require(:doctor).permit(:name, :speciality, :description, :graduation, :image)
   end
 
   def destroy
@@ -27,7 +23,13 @@ class Api::V1::DoctorsController < ApplicationController
     if @doctor.destroy
       render json: 'Doctor deleted successfully'
     else
-      render json: 'Doctor deletion failed'
+      render json: @doctor.errors
     end
+  end
+
+  private
+
+  def doctor_params
+    params.require(:doctor).permit(:name, :speciality, :description, :graduation, :image)
   end
 end
