@@ -11,7 +11,7 @@ class Api::V1::ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render json: { data: @reservation, status: :created, location: @reservation }
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end

@@ -12,7 +12,7 @@ class Api::V1::DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      render json: 'Doctor created successfully'
+      render json:, status: :created, message: 'Doctor created successfully'
     else
       render json: @doctor.errors
     end
