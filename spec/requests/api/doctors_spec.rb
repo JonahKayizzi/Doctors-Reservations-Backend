@@ -80,5 +80,19 @@ describe 'Doctors API' do
             end
         end
     end
+
+    path '/doctors/{id}' do
+        delete 'Deletes a doctor' do
+            tags 'Doctors'
+            produces 'application/json'
+            parameter name: :id, in: :path, type: :integer
+            response '204', 'Doctor deleted successfully' do
+                run_test!
+            end
+            response '404', 'doctor not found' do
+                run_test!
+            end
+        end
+    end
 end
 
