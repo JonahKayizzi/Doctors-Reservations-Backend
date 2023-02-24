@@ -12,7 +12,8 @@ RSpec.describe 'Doctors', type: :request do
     Doctor.create(
       name: 'Peter Omaha',
       speciality: 'General Practice',
-      description: 'Top dentist in the city of New York. Come get your dentals corrected in a single appointment. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      description: "Top dentist in the city of New York. Come get your dentals corrected in a single appointment.
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       graduation: '05/02/2010',
       image: 'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg',
       id: 1
