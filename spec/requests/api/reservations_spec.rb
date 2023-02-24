@@ -28,6 +28,30 @@ describe 'Reservations API' do
         end
     end
 
+    path '/reservations' do
+        post 'Creates a reservation' do
+            tags 'Reservations'
+            consumes 'application/json'
+            parameter name: :reservation, in: :body, schema: {
+                type: :object,
+                properties: {
+                    date: { type: :string },
+                    city: { type: :string },
+                    doctor_id: { type: :integer },
+                    user_id: { type: :integer }
+                },
+                required: [ 'date', 'city', 'doctor_id', 'user_id' ]
+            }
+            response '201', 'reservation created' do
+                let(:reservation) { { date: '2021-03-01', city: 'Bogota', doctor_id: 1, user_id: 1 } }
+                run_test!
+            end
+            response '422', 'invalid request' do
+                let(:reservation) { { date: '2021-03-01', city: 'Bogota', doctor_id: 1, user_id: 1 } }
+                run_test!
+            end
+        end
+    end
 end
 
 
