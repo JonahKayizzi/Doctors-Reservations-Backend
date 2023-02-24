@@ -8,5 +8,5 @@ class Reservation < ApplicationRecord
   validates_date :date, after: :today
 
   # Validates whether a doctor only is able to be reserved once per day for a particular city
-  validates_uniqueness_of :doctor, scope: %i[date city]
+  validates_uniqueness_of :doctor, scope: %i[date]
 end
