@@ -25,8 +25,8 @@ default: &default
 
 development:
   <<: *default
-  username: <%= ENV['USERNAME'] %>
-  password: <%= ENV['PASSWORD'] %>
+  username: postgres
+  password: <%= ENV["password"] %>
   database: Doctors_Reservations_Development
 
   # The specified database role being used to connect to postgres.
@@ -61,8 +61,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: <%= ENV['USERNAME'] %>
-  password: <%= ENV['PASSWORD'] %>
+  username: postgres
+  password: <%= ENV["password"] %>
   database: Doctors_Reservations_Test
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -89,4 +89,4 @@ production:
   <<: *default
   database: Doctors_Reservations
   username: Doctors_Reservations_Backend
-  password: <%= ENV["DOCTORS_RESERVATIONS_BACKEND_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DOCTORS_RESERVATIONS_BACKEND_DATABASE_password"] %>
