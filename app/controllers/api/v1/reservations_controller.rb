@@ -1,6 +1,9 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    @reservation = Reservation.all
+    # Pending update current_user variable assignation
+    # It is up to front-end authentication method
+    current_user = User.first
+    @reservation = Reservation.where(user_id: current_user.id)
     render json: @reservation
   end
 
