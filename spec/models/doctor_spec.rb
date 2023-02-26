@@ -5,7 +5,8 @@ RSpec.describe Doctor, type: :model do
     Doctor.new(
       name: 'Tom',
       speciality: 'General',
-      description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       graduation: '20/01/1998',
       image: '#'
     )
