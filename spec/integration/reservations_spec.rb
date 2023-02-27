@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Reservations', type: :request do
   before(:each) do
     @user = User.create(id: 1, user_name: 'Joshep Thiele')
-    @doctor = Doctor.create(name: 'Steven Hobb', speciality: 'Dentist', description: 'Top dentist in the city of New York. Come get your dentals corrected in a single appointment. ', graduation: '2001-01-30', image: 'https://static9.depositphotos.com/1037778/1113/i/600/depositphotos_11138153-stock-photo-mature-dentist-surgeon-at-office.jpg')
+    @doctor = Doctor.create(name: 'Steven Hobb', speciality: 'Dentist', graduation: '2001-01-30',
+                            description: "Top dentist in the city of New York. Come get your
+                            dentals corrected in a single appointment. ",
+                            image: 'https://static9.depositphotos.com/1037778/1113/i/600/depositphotos_11138153-stock-photo-mature-dentist-surgeon-at-office.jpg')
   end
 
   describe 'GET /index' do
