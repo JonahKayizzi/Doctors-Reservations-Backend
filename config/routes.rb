@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
@@ -14,6 +12,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :doctors, only: [:index, :show, :create, :destroy]
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:create]
     end
   end
 
