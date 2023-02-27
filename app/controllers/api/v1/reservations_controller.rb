@@ -1,17 +1,16 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    @reservation = Reservation.all
+    # Pending update current_user variable assignation
+    # It is up to front-end authentication method
+    current_user = User.first
+    @reservation = Reservation.where(user_id: current_user.id)
     render json: @reservation
-  end
-
-  def new
-    @reservation = Reservation.new
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      render json: { data: @reservation, status: :created, location: @reservation }
+      render json: { status: :created, data: @reservation }
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
