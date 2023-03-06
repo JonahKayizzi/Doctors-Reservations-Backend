@@ -2,11 +2,10 @@
 
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="doctors Icon.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Microverse README Template</b></h3>
+  <h3><b>Doctors Reservations Back-End</b></h3>
 
 </div>
 
@@ -18,7 +17,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -35,12 +33,16 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Doctors Reservations Backend <a name="about-project"></a>
 
 
-**Doctors reservations Backend** is a back End implementation to the final project of Microverse, implemented with all technologies what we learn
+**Doctors reservations Backend** is a back-end implementation of the front-end application that interacts with the back-end application to add doctors, logins, and reservations.
 
 ## 🛠 Built With <a name="built-with"></a>
+- Rails
+- Ruby
+- Rspec
+- Api Documentation
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -71,7 +73,7 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **Implement the reservations using React and Ruby on rails**
+- **Implement the reservations,  using React and Ruby on rails**
 - **Demonstrate ability to apply best practices of communication for resolving teamwork challenges.**
 - **Add new doctors and reservations and using API REST to deploying in the Front-end Repository**
 
@@ -79,10 +81,9 @@
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## Doctors Reservations Front-End
 
-
-- [Live Demo Link](Working on it)
+[Front End App](https://github.com/JonahKayizzi/doctors-reservations-frontend.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,7 +146,7 @@ To run tests, run the following command:
 
 
 ```sh
-  Rspec .
+  rspec .
 ```
 
 
@@ -183,7 +184,7 @@ You can deploy this project using:
 - Twitter: [@JonahKayizzi](https://twitter.com/JonahKayizzi)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/jonathan-kayizzi/)
 
- **Camilo Vela**
+👤 **Camilo Vela**
 
 - GitHub: [@camilovelag](https://github.com/camilovelag)
 - Twitter: [@camilovelag](https://twitter.com/camilovelag)
@@ -192,16 +193,6 @@ You can deploy this project using:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -238,8 +229,6 @@ I would like to thank to the Designer [Murat Korkmaz](https://www.behance.net/ga
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
