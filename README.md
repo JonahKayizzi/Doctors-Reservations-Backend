@@ -104,6 +104,7 @@ In order to run this project you need:
  bundle install
  rails db:create
  rails db:migrate
+ rails db:seed
 ```
 
 
@@ -146,7 +147,8 @@ To run tests, run the following command:
 
 
 ```sh
-  rspec .
+  rspec ./spec/models
+  rspec ./spec/integration
 ```
 
 

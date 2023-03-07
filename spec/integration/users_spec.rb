@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  # before(:each) do
-  #   User.create(user_name: 'Joshep Thiele')
-  # end
-
   describe ' POST /create' do
     it 'returns http success' do
       post '/api/v1/users', params: {

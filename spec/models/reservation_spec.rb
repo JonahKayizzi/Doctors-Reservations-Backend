@@ -16,7 +16,7 @@ RSpec.describe Reservation, type: :model do
       city: 'Buenos Aires',
       user: @user,
       doctor: @doctor,
-      date: '2023-03-01'
+      date: '2024-03-01'
     )
 
     @user.save
@@ -40,14 +40,14 @@ RSpec.describe Reservation, type: :model do
       city: 'Buenos Aires',
       user: @user,
       doctor: @doctor,
-      date: '2023-03-01'
+      date: '2024-03-01'
     )
     expect(@reservation2).to_not be_valid
     @reservation3 = Reservation.new(
       city: 'Buenos Aires',
       user: @user,
       doctor: @doctor,
-      date: '2023-03-02'
+      date: '2024-03-02'
     )
     expect(@reservation3).to be_valid
   end
