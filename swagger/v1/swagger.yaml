@@ -1,0 +1,246 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  '/doctors':
+    get:
+      summary: Retrieves Doctors
+      tags:
+        - Doctors
+      responses:
+        '200':
+          description: doctors found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    speciality:
+                      type: string
+                    description:
+                      type: string
+                    graduation:
+                      type: string
+                    image:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                  required:
+                    - id
+                    - name
+                    - speciality
+                    - description
+                    - graduation
+                    - image
+                    - created_at
+                    - updated_at
+        '404':
+          description: doctors not found
+    post:
+      summary: Creates a doctor
+      tags:
+        - Doctors
+      parameters: []
+      responses:
+        '201':
+          description: Doctor created successfully
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                speciality:
+                  type: string
+                description:
+                  type: string
+                graduation:
+                  type: string
+                image:
+                  type: string
+              required:
+                - name
+                - speciality
+                - description
+                - graduation
+                - image
+  '/doctors/{id}':
+    get:
+      summary: Retrieves a doctor
+      tags:
+        - Doctors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: doctor found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  speciality:
+                    type: string
+                  description:
+                    type: string
+                  graduation:
+                    type: string
+                  image:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                required:
+                  - id
+                  - name
+                  - speciality
+                  - description
+                  - graduation
+                  - image
+                  - created_at
+                  - updated_at
+        '404':
+          description: doctor not found
+    delete:
+      summary: Deletes a doctor
+      tags:
+        - Doctors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Doctor deleted successfully
+        '404':
+          description: doctor not found
+  '/users/{user_id}/reservations':
+    get:
+      summary: Retrieves Reservations
+      tags:
+        - Reservations
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: reservations found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    date:
+                      type: string
+                    city:
+                      type: string
+                    doctor_id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                  required:
+                    - id
+                    - date
+                    - city
+                    - doctor_id
+                    - user_id
+                    - created_at
+                    - updated_at
+        '404':
+          description: reservations not found
+    post:
+      summary: Creates a reservation
+      tags:
+        - Reservations
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                city:
+                  type: string
+                doctor_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+                - date
+                - city
+                - doctor_id
+                - user_id
+  '/users':
+    post:
+      summary: Create or find a user
+      tags:
+        - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+              required:
+                - user_name
+servers:
+  - url: http://127.0.0.1:3000/api/v1/
+    variables:
+      defaultHost:
+        default: 127.0.0.1:3000/api/v1/
