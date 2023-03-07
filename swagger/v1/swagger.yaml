@@ -139,11 +139,17 @@ paths:
           description: Doctor deleted successfully
         '404':
           description: doctor not found
-  '/reservations':
+  '/users/{user_id}/reservations':
     get:
       summary: Retrieves Reservations
       tags:
         - Reservations
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: reservations found
@@ -182,7 +188,12 @@ paths:
       summary: Creates a reservation
       tags:
         - Reservations
-      parameters: []
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
         '201':
           description: reservation created
@@ -207,8 +218,29 @@ paths:
                 - city
                 - doctor_id
                 - user_id
+  '/users':
+    post:
+      summary: Create or find a user
+      tags:
+        - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+              required:
+                - user_name
 servers:
-  - url: http://{defaultHost}
+  - url: http://127.0.0.1:3000/api/v1/
     variables:
       defaultHost:
         default: 127.0.0.1:3000/api/v1/
