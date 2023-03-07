@@ -1,10 +1,11 @@
 require 'swagger_helper'
 
 describe 'Reservations API' do
-  path '/reservations' do
+  path '/users/{user_id}/reservations' do
     get 'Retrieves Reservations' do
       tags 'Reservations'
       produces 'application/json'
+      parameter name: :user_id, in: :path, type: :integer
       response '200', 'reservations found' do
         schema type: :array,
                items: {
@@ -28,10 +29,11 @@ describe 'Reservations API' do
     end
   end
 
-  path '/reservations' do
+  path '/users/{user_id}/reservations' do
     post 'Creates a reservation' do
       tags 'Reservations'
       consumes 'application/json'
+      parameter name: :user_id, in: :path, type: :integer
       parameter name: :reservation, in: :body, schema: {
         type: :object,
         properties: {
