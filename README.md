@@ -17,6 +17,8 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [Kanban Board](#kanban-board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -80,6 +82,25 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
+
+## 🚀 Live Demo
+
+[Live Demo here.](https://doctors-reservations-rily.onrender.com)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Kanban board <a name="kanban-board"></a>
+
+See the kanban board [here](https://github.com/users/JonahKayizzi/projects/7).
+
+[Image of the board's initial state](https://user-images.githubusercontent.com/103001263/224076428-fe979417-46c0-4031-b52a-6fb24fa9d7ac.png).
+
+The 4 members of the project team are:
+
+@JonahKayizzi
+@asdt560
+@Camilovelag
+@cvalencia1991
 
 ## Doctors Reservations Front-End
 
